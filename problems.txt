@@ -1,0 +1,2 @@
+Error when sending a message while being disconnected
+Error when sending an empty message - [Resolved 21:44 - 28th July, 2025]

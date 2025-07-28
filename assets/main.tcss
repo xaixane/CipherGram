@@ -1,0 +1,58 @@
+Screen{
+  background:#000000;
+}
+#main_container{
+  width:100%;
+  height:100%;
+}
+
+#MessageDisplay{
+  height:1fr;
+  overflow-y:auto;
+  padding:1;
+  margin-bottom:1;
+}
+
+.messageWidget{
+  padding: 1 2;
+}
+
+CustomInput{
+  height:3;
+  width:100%;
+  margin-bottom:1;
+}
+#CustomInputContainer{
+  width:100%;
+  height:100%;
+  align: center middle;
+  padding: 0 2;
+}
+
+Input{
+  min-width:20%;
+  max-width:80%;
+  width:80%;
+  height: 100%;
+  border: tall #CDB4DB;
+}
+
+Header{
+  background: #CDB4DB;
+  color: black;
+}
+
+HeaderClock{
+  background: white;
+  color: black;
+}
+
+#SubmitButton{
+  min-width:9;
+  width:auto;
+  height:3;
+  background: #CDB4DB;
+  color: black;
+  border: tall #CDB4DB;
+  content-align: center middle;
+}
