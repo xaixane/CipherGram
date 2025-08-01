@@ -1,4 +1,5 @@
 from telethon import TelegramClient,events
+from telethon.errors import SessionPasswordNeededError, PhoneNumberInvalidError, PhoneCodeInvalidError, PhoneCodeExpiredError
 from controllers.telegram_event_handler import TelegramMessage
 from dotenv import load_dotenv
 from os import getenv
@@ -36,6 +37,38 @@ class TelegramService:
 
         await self.client.run_until_disconnected()
     
+    async def ensure_login(self):
+        await self.client.connect()
+
+        if not await self.client.is_user_authorized():
+            while True:
+                try:
+                    phone = input("Enter your phone number (with country code): ")
+                    await self.client.send_code_request(phone)
+                    break
+                except PhoneNumberInvalidError:
+                    print("Phone Number Invalid, Try Again!")
+
+            while True:
+                code = input("Enter the code you've recieved on your telegram: ")
+                try:
+                    await self.client.sign_in(phone=phone,code=code)
+                    break
+                except PhoneCodeInvalidError:
+                    print("Your Phone Code is Invalid...Try again!")
+                except PhoneCodeExpiredError:
+                    print("Your Phone Code Expired...Requesting a new one....")
+                    await self.client.send_code_request(phone)
+
+
+            try:
+                if await self.client.is_user_authorized():
+                    return
+            except SessionPasswordNeededError:
+                password = input("You have 2FA Enabled, Enter your password: ")
+                await self.client.sign_in(password=password)
+
+
     async def send_message(self,message_str:str):
         message_status = await self.client.send_message(self.target,message_str)    
     

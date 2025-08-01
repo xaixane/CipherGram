@@ -38,5 +38,13 @@ class CipherGram(App):
 
     def on_telegram_message(self,event:TelegramMessage):
         self.message_screen.add_message(sender=event.sender,message=event.message,isUser=False)
- 
-CipherGram(TelegramService()).run()
+
+
+async def main():
+    telegram_service = TelegramService()
+    await telegram_service.ensure_login()
+    await CipherGram(telegram_service).run_async()
+
+
+if __name__ == "__main__":
+   asyncio.run(main()) 
