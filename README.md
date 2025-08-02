@@ -1,3 +1,5 @@
+![Ciphergram Screenshot](assets/ciphergram.png)
+
 # 📬 CipherGram
 
 A professional, terminal-based Telegram client built using [Textual](https://github.com/Textualize/textual) and [Telethon](https://github.com/LonamiWebs/Telethon). CipherGram focuses on simplicity, real-time message handling, and a responsive TUI experience.
