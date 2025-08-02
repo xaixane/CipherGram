@@ -38,10 +38,7 @@ pip install -r requirements.txt
 1. Create a .env file in the same folder as main.py 
 
 2. Add your 
-    [-] Telegram API Key
-    [-] Telegram API Hash
-    [-] Session Name(it can be anything)
-    [-] Target you wanna send and recieve messages.
+    [-] Telegram API Key<br>[-] Telegram API Hash<br>[-] Session Name(it can be anything)<br>[-] Target you wanna send and recieve messages.
 
 Below is a screenshot for reference.
 
